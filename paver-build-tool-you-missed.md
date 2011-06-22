@@ -18,7 +18,7 @@ About Me
 * Regular pythonista since '05
 * Testing and automation obsession
 * Centrum Holdings, mostly Django-related work
-* Lots of smallish projects
+  * Lots of smallish projects
 
 -------------------------------------
 
@@ -37,10 +37,6 @@ Survey
 
 Who would use a build tool...
 
-.notes: persenter notes Help me
-
-.	presenter notes: yeeah
-
 -------------------------------------
 
 
@@ -50,6 +46,23 @@ Build tool in an interpreted world
 * Generated Content In Repository (TM)
 * Moving (files) around
 
+-------------------------------------
+
+
+...and why in Python?
+=====================================
+
+* Batteries included (tm)
+* Integration with pythonic tools
+
+-------------------------------------
+
+
+...and why Paver?
+=====================================
+
+* Simple things stay simple
+* Complex is possible (or integrated)
 
 -------------------------------------
 
@@ -65,14 +78,6 @@ As in "Console API"
 
 
 -------------------------------------
-
-Paver vs. rest
-=====================================
-
-
--------------------------------------
-
-
 
 Getting started (First Task!)
 =====================================
@@ -141,7 +146,7 @@ Overwriting distutils commands
 
 -------------------------------------
 
-Command line arguments (positional)
+Positional arguments
 =====================================
 
 	!python
@@ -156,7 +161,7 @@ Command line arguments (positional)
 
 -------------------------------------
 
-Command line arguments (GNU style)
+CMD options, GNU style
 =====================================
 
 	!python
@@ -188,6 +193,7 @@ Options (cont.)
 =====================================
 
 	!python
+	# inside minilib task
 	options.get('extra_files', [])
 
 
@@ -199,9 +205,10 @@ Namespace search
 	!python
 	options(setup=Bunch(version="1.1"))
 	options.version
-
+	'1.1'
 	options.order('minilib')
 	options.version
+	AttributeError: version
 
 
 -------------------------------------
@@ -248,6 +255,8 @@ Documentation (sphinx)
 		)
 	)
 
+And run
+
 	!sh
 	paver html
 
@@ -259,7 +268,21 @@ Documentation (cog)
 =====================================
 
 	!python
-	[[[ replace ]]]
+	#<== include('started/oldway/setup.py')==>
+	#<==end==>
+
+configured with
+
+	!python
+	options(
+	    cog=Bunch(
+		includedir="docs/samples",
+		beginspec="<==",
+		endspec="==>",
+		endoutput="<==end==>"
+	    )
+	)
+
 
 
 
